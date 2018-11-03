@@ -15,7 +15,7 @@ jobs:
 
   deployment:
     docker:
-      -image: docker:stable-git
+      - image: circleci/node:10
     branch: master
     steps:
       - git remote add production dokku@krispinter.co.uk:arena
@@ -25,6 +25,6 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
-      - test
+      # - build
+      # - test
       - deployment

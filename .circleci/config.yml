@@ -1,6 +1,12 @@
-deployment:
-  production:
-    branch: master
-    commands:
-      - git remote add production dokku@krispinter.co.uk:arena
-      - git push production master
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  deployment:
+    production:
+      branch: master
+      commands:
+        - git remote add production dokku@krispinter.co.uk:arena
+        - git push production master

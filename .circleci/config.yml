@@ -7,6 +7,6 @@ jobs:
   deployment:
     production:
       branch: master
-      commands:
+      steps:
         - git remote add production dokku@krispinter.co.uk:arena
         - git push production master

@@ -6,12 +6,13 @@ const PORT = isProd ? process.env.PORT : 9000;
 
 function getCallerIP(request) {
   let ip =
-    request.headers["x-forwarded-for"] ||
+    request.headers["X-Forwarded-For"] ||
     request.connection.remoteAddress ||
     request.socket.remoteAddress ||
     request.connection.socket.remoteAddress;
 
   let port =
+    request.headers["X-Forwarded-Port"] ||
     request.connection.remotePort ||
     request.socket.remotePort ||
     request.connection.socket.remotePort;
@@ -23,7 +24,7 @@ function getCallerIP(request) {
 
 app.get("/", function(req, res) {
   const { ip, port } = getCallerIP(req);
-  res.send(`HELLO HUMAN FROM ${ip}${port}`);
+  res.send(`HELLO HUMAN FROM ${ip}:${port}`);
 });
 
 app.listen(PORT, () =>

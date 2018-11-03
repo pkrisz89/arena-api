@@ -7,5 +7,8 @@ jobs:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
       - run: git remote add production dokku@krispinter.co.uk:arena
+      - run:
+          name: Add krispinter.co.uk to known_hosts
+          command: ssh-keyscan -H krispinter.co.uk >> ~/.ssh/known_hosts
       - run: git push production master
       - run: echo "bye world" # run the `echo` command

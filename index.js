@@ -23,7 +23,7 @@ function getCallerIP(request) {
 
 app.get("/", function(req, res) {
   const { ip, port } = getCallerIP(req);
-  res.json({ ip, port });
+  res.send(`HELLO HUMAN FROM ${ip}${port}`);
 });
 
 app.listen(PORT, () =>

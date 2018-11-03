@@ -1,0 +1,14 @@
+const { OPTIONS } = require("./constants");
+const { PAPER, ROCK, SCISSORS, SPOCK, LIZARD, SHIELD, WATERGUN } = OPTIONS;
+
+const RULES = Object.freeze({
+  [PAPER]: [ROCK, SPOCK, SHIELD],
+  [ROCK]: [SCISSORS, LIZARD, SHIELD],
+  [SCISSORS]: [PAPER, LIZARD, SHIELD],
+  [SPOCK]: [SCISSORS, ROCK, SHIELD],
+  [LIZARD]: [SPOCK, PAPER, SHIELD],
+  [WATERGUN]: [PAPER, ROCK, SCISSORS, SPOCK, LIZARD],
+  [SHIELD]: [WATERGUN]
+});
+
+module.exports = RULES;

@@ -8,5 +8,5 @@ jobs:
     production:
       branch: master
       steps:
-        - git remote add production dokku@krispinter.co.uk:arena
-        - git push production master
+        - run git remote add production dokku@krispinter.co.uk:arena
+        - run git push production master

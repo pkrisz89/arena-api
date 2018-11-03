@@ -1,0 +1,11 @@
+const CHOICES = {
+  PAPER: "PAPER",
+  ROCK: "ROCK",
+  SCISSORS: "SCISSORS",
+  SPOCK: "SPOCK",
+  LIZARD: "LIZARD",
+  WATERGUN: "SWORD",
+  SHIELD: "SHIELD"
+};
+
+module.exports = CHOICES;

@@ -22,9 +22,8 @@ function getCallerIP(request) {
 }
 
 app.get("/", function(req, res) {
-  //   const { ip, port } = getCallerIP(req);
-  //   res.send(`HELLO HUMAN FROM ${ip}${port}`);
-  res.send("HELLO HUMAN");
+  const { ip, port } = getCallerIP(req);
+  res.send(`HELLO HUMAN FROM ${ip}${port}`);
 });
 
 app.listen(PORT, () =>

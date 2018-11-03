@@ -14,6 +14,8 @@ jobs:
       - run: <command>
 
   deployment:
+    docker:
+      -image: docker:stable-git
     branch: master
     steps:
       - git remote add production dokku@krispinter.co.uk:arena

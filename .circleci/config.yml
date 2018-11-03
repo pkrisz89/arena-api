@@ -1,12 +1,28 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
+  build:
+    docker:
+      - image: circleci/<language>:<version TAG>
+    steps:
+      - checkout
+      - run: <command>
+  test:
+    docker:
+      - image: circleci/<language>:<version TAG>
+    steps:
+      - checkout
+      - run: <command>
+
   deployment:
-    production:
-      branch: master
-      steps:
-        - run git remote add production dokku@krispinter.co.uk:arena
-        - run git push production master
+    branch: master
+    steps:
+      - git remote add production dokku@krispinter.co.uk:arena
+      - git push production master
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+      - deployment
